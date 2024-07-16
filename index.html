@@ -1,0 +1,433 @@
+<html><head><base href="https://lztechsolutions.com" /><title>LZ Tech Solutions - Innovativa Webblösningar</title><style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary-color: #00C9A7;
+    --secondary-color: #4A90E2;
+    --accent-color: #FFC107;
+    --bg-color: #121212;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #E0E0E0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* Glass Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Header Styles */
+  header {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    margin: 2px 0;
+    transition: 0.4s;
+  }
+
+  /* Grid Styles */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    padding: 40px 0;
+  }
+
+  .grid-item {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .grid-item-content {
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .grid-item h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+  }
+
+  .grid-item p {
+    font-size: 0.9em;
+    color: var(--text-color);
+  }
+
+  .grid-item img {
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    object-fit: cover;
+  }
+
+  /* Feature Icons */
+  .feature-icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+  }
+
+  /* CTA Button */
+  .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--secondary-color);
+  }
+
+  /* Footer Styles */
+  footer {
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .social-links {
+    margin-bottom: 10px;
+  }
+
+  .social-links a {
+    color: var(--text-color);
+    font-size: 1.2em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+
+  .social-links a:hover {
+    color: var(--primary-color);
+  }
+
+  .footer-text {
+    font-size: 0.9em;
+    color: var(--text-color);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--bg-color);
+      padding: 20px;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .grid-item {
+      grid-column: span 6 !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-item {
+      grid-column: span 1 !important;
+    }
+  }
+
+  /* Subtle glow effect */
+  .subtle-glow {
+    text-shadow: 0 0 3px var(--primary-color);
+  }
+
+  /* Background animation */
+  @keyframes gradientBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(-45deg, #00C9A7, #4A90E2, #FFC107, #121212);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    opacity: 0.05;
+  }
+</style></head><body>
+  <header class="glass">
+    <nav class="container">
+      <div class="logo subtle-glow">LZ Tech Solutions</div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="nav-links">
+        <a href="#home">Hem</a>
+        <a href="#services">Tjänster</a>
+        <a href="#about">Om oss</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="home" class="grid">
+      <div class="grid-item glass" style="grid-column: span 7;">
+        <div class="grid-item-content">
+          <h2 class="subtle-glow">Välkommen till LZ Tech Solutions</h2>
+          <p>Vi ger företag kraft genom banbrytande webbteknologier och innovativa digitala lösningar. Vi förvandlar dina idéer till verklighet.</p>
+          <a href="#contact" class="cta-button">Få en gratis konsultation</a>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 5;">
+        <img src="hero.jpg" alt="Teknologiutställning" width="400" height="300">
+      </div>
+      <div class="grid-item glass" style="grid-column: span 4;">
+        <div class="grid-item-content">
+          <div class="feature-icon">🚀</div>
+          <h2>Snabb driftsättning</h2>
+          <p>Vi använder agila metoder för att säkerställa snabb utveckling och driftsättning av dina projekt.</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 4;">
+        <div class="grid-item-content">
+          <div class="feature-icon">🔒</div>
+          <h2>Säkra lösningar</h2>
+          <p>Vårt team prioriterar säkerhet i alla våra utvecklingar, skyddar din data och dina användare.</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 4;">
+        <div class="grid-item-content">
+          <div class="feature-icon">📱</div>
+          <h2>Mobil-först approach</h2>
+          <p>Vi designar och utvecklar med ett mobil-först tänkande, säkerställer bra användarupplevelse på alla enheter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="grid">
+      <div class="grid-item glass" style="grid-column: span 8;">
+        <div class="grid-item-content">
+          <h2>Webbutveckling</h2>
+          <p>Skräddarsydda webbapplikationer anpassade efter dina specifika affärsbehov med användning av den senaste tekniken.</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 4;">
+        <div class="grid-item-content">
+          <h2>E-handelslösningar</h2>
+          <p>Robusta och skalbara onlinebutiker som driver försäljning och förbättrar kundupplevelsen.</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 6;">
+        <div class="grid-item-content">
+          <h2>Molntjänster</h2>
+          <p>Utnyttja kraften i molnberäkning med vår expertis inom AWS, Azure och Google Cloud.</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 6;">
+        <img src="https://source.unsplash.com/random/600x800?coding" alt="Kodningsutställning" width="400" height="300">
+      </div>
+    </section>
+
+   
+
+    <section id="about" class="grid">
+      <div class="grid-item glass" style="grid-column: span 5;">
+        <div class="grid-item-content">
+          <h2 class="subtle-glow">Om LZ Tech Solutions</h2>
+          <p>Grundat 2015 har LZ Tech Solutions varit i framkant av teknologisk innovation. Vårt team av expertutvecklare, designers och strateger arbetar tillsammans för att leverera exceptionella digitala lösningar.</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 4;">
+        <div class="grid-item-content">
+          <h2>Vår mission</h2>
+          <p>Att ge företag kraft genom innovativa teknologilösningar, driva tillväxt och framgång i den digitala tidsåldern.</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 3;">
+        <div class="grid-item-content">
+          <h2>Våra värderingar</h2>
+          <ul>
+            <li>Innovation</li>
+            <li>Integritet</li>
+            <li>Samarbete</li>
+            <li>Excellens</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="grid">
+      <div class="grid-item glass" style="grid-column: span 6;">
+        <div class="grid-item-content">
+          <h2 class="subtle-glow">Kontakta oss</h2>
+          <p>Redo att ta ditt företag till nästa nivå? Kontakta oss idag för en gratis konsultation!</p>
+          <a href="/cdn-cgi/l/email-protection#b3daddd5dcf3dfc9c7d6d0dbc0dcdfc6c7dadcddc09dd0dcde" class="cta-button">Kontakta oss</a>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 3;">
+        <div class="grid-item-content">
+          <h2>Vår plats</h2>
+          <p>123 Teknikgatan<br>Innovationsstad, TC 54321<br>Sverige</p>
+        </div>
+      </div>
+      <div class="grid-item glass" style="grid-column: span 3;">
+        <div class="grid-item-content">
+          <h2>Följ oss</h2>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">💼</a>
+            <a href="#" aria-label="Twitter">🐦</a><a href="#" aria-label="GitHub">🐙</a>
+            <a href="#" aria-label="Instagram">📷</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="glass">
+    <div class="container">
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn">💼</a>
+        <a href="#" aria-label="Twitter">🐦</a>
+        <a href="#" aria-label="GitHub">🐙</a>
+        <a href="#" aria-label="Instagram">📷</a>
+      </div>
+      <p class="footer-text">&copy; 2023 LZ Tech Solutions. Alla rättigheter förbehållna.</p>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+      });
+
+      // Close menu when a link is clicked
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('active');
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', (event) => {
+        const isClickInsideNav = navLinks.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+
+        if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body></html>
