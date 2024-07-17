@@ -148,8 +148,14 @@ nav {
 }
 
 .grid-item img {
-  width: 100%;
-  object-fit: cover;
+  max-height: 250px;
+  max-width: 250px;
+  padding: 1rem;
+  
+}
+.grid-item.logo-box {
+  display: flex;
+  align-items: center;justify-content: center;
 }
 
 .repo-link {
