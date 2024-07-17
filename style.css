@@ -30,12 +30,14 @@ body {
   padding: 20px;
 }
 
+
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  
 }
 
 header {
@@ -99,9 +101,27 @@ nav {
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
+.grid-item.custom-shape {
+  border-bottom-right-radius: 100px;
 }
 
-.grid-item:hover {
+.grid-item.custom-shape::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  border-top-left-radius: 36px;
+}
+
+
+
+
+
+  .grid-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
@@ -112,6 +132,8 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
+  
 }
 
 .grid-item h2 {
@@ -130,7 +152,11 @@ nav {
   object-fit: cover;
 }
 
-
+.repo-link {
+  text-decoration: under;
+  color: #E0E0E0;
+  
+}
 
 /* Feature Icons */
 .feature-icon {
@@ -228,11 +254,16 @@ footer {
 
 .social-links {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 27px;
+  
 }
 
 .social-links a {
   color: var(--text-color);
-  font-size: 1.2em;
+  font-size: 2.1em;
   margin: 0 10px;
   transition: color 0.3s ease;
 }
@@ -310,7 +341,7 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(-45deg, #00C9A7, #4A90E2, #FFC107, #121212);
+  background: linear-gradient(-45deg, #121212, #4A90E2, #00C9A7, #121212);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   opacity: 0.05;
